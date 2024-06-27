@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -34,21 +37,21 @@ header {
 .profile {
     display: flex;
     padding:1rem;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .profile-picture img {
-    width: 400px;
-    height: 400px;
+    width: 320px;
+    height: 420px;
     border-radius: 40px;
     object-fit: cover;
+    border: 4px solid #e1b218;
 }
 
 .profile-details {
     display: flex;
     gap: 1rem;
     flex-direction: column;
-    /* flex-grow:1; */
 }
 
 .detail-item {
@@ -65,9 +68,48 @@ header {
     min-width: 300px;
 }
 
-.detail-item p {
+.detail-item .detail-border {
     border-left: 2px solid #e1b218;
     padding-left: 1rem;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.projects {
+    display: flex;
+}
+.project-img {
+    object-fit: cover;
+    width: 500px;
+    height: 300px; 
+}
+.project-wrapper {
+    position: relative;
+    margin-right: 30px;
+    transition: transform 0.3s ease-in-out
+}
+
+.project-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(231, 231, 37, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.project-wrapper:hover {
+    transform: scale(1.07);
+}
+
+.project-wrapper:hover::before {
+    opacity: 1;
+}
+.project-wrapper {
+    display: inline-block;
 }
